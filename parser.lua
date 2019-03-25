@@ -149,7 +149,7 @@ end
 
 local Parser = {}
 
--- For some reason table.insert returns nil in funciton below
+-- For some reason table.insert returns nil in function below
 local insert = table.insert
 
 function Parser:getAtEndOfSouce()
@@ -165,7 +165,7 @@ function Parser:parseUpdateStatement()
     self:skipToken(tokens.word, 'set')
 
     local columns, column = {}
-
+    local value
     while not self:getAtEndOfSouce() and string.lower(self.currentToken.value) ~= 'where' do
         if self.currentToken.type == tokens.symbol then
             if self.currentToken.value == '=' then
@@ -358,7 +358,7 @@ end
 
 function Parser:checkForUnexpectedEnd()
     if self:getAtEndOfSouce() then
-        error("SQL: Unexpected end of soucre")
+        error("SQL: Unexpected end of source")
     end
 end
 
@@ -384,7 +384,7 @@ function Parser:readNextStatement()
         return
     end
 
-    error("SQL: Unrecgonized statement '" .. self.currentToken.value .. "'")
+    error("SQL: Unrecognized statement '" .. self.currentToken.value .. "'")
 end
 
 return Parser
