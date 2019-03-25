@@ -165,7 +165,7 @@ function Parser:parseUpdateStatement()
     self:skipToken(tokens.word, 'set')
 
     local columns, column = {}
-
+    local value
     while not self:getAtEndOfSouce() and string.lower(self.currentToken.value) ~= 'where' do
         if self.currentToken.type == tokens.symbol then
             if self.currentToken.value == '=' then

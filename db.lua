@@ -288,7 +288,7 @@ function db:exists(name)
 end
 
 function db:query(query)
-    parser = Parser:init(query)
+    local parser = Parser:init(query)
 
     local command, args = parser:readNextStatement()
     while args == nil do
