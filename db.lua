@@ -135,7 +135,7 @@ function db:create(name, columns)
 end
 
 -- Name - tables name
--- ... - Table or strings containing values to be insrted into table
+-- ... - Table or strings containing values to be inserted into table
 --       set id to nil to autoincrement.
 function db:insert(name, row)
     assert(self.data[name], "Table '" .. name .. "' does not exist")
